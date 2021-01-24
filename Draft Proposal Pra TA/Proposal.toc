@@ -1,0 +1,15 @@
+\babel@toc {bahasa}{}
+\contentsline {section}{\numberline {I}PENDAHULUAN}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Latar Belakang}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Rumusan Masalah}{4}{}%
+\contentsline {subsection}{\numberline {1.3}Penelitian Terkait}{4}{}%
+\contentsline {subsection}{\numberline {1.4}Gap Tersisa}{4}{}%
+\contentsline {subsection}{\numberline {1.5}Tujuan Penelitian}{4}{}%
+\contentsline {section}{\numberline {II}TINJAUAN PUSTAKA}{5}{}%
+\contentsline {subsection}{\numberline {2.1}Convolutional Neural Network}{5}{}%
+\contentsline {section}{\numberline {III}METODOLOGI}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Alat dan Bahan}{7}{}%
+\contentsline {subsection}{\numberline {3.2}Metodologi (Tahapan Pengerjaan)}{7}{}%
+\contentsline {section}{\numberline {IV}HASIL YANG DIHARAPKAN}{8}{}%
+\contentsline {section}{\numberline {V}RENCANA KERJA}{8}{}%
+\contentsline {section}{\numberline {VI}DAFTAR PUSTAKA}{9}{}%

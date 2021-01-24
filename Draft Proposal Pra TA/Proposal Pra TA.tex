@@ -1,0 +1,301 @@
+\documentclass[a4paper]{article}
+\usepackage[left=3.00cm, right=2.00cm, bottom=2.00cm, top=3.00cm]{geometry}
+\usepackage{tabto}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{2061}{}
+\usepackage[bahasa]{babel}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{3}
+
+\title{Proposal Pra Tugas Akhir}
+
+\begin{document}
+	
+	\begin{flushleft}
+		\textbf{Departemen Teknik Komputer - FTEIC}\\
+		\textbf{Institut Teknologi Sepuluh Nopember}\\
+	\end{flushleft}
+
+	\begin{center}
+		\underline{\textbf{EC184701 - PRA TUGAS AKHIR – 2 SKS}}
+	\end{center}
+
+	\begin{flushleft}
+		Nama Mahasiswa \tab : Habibul Rahman Qalbi\\
+		Nomor Pokok \tab : 07211640000015 \\
+		Semester \tab : Ganjil 2019/2020\\
+		Dosen Pembimbing \tab : 1. Dr. Eko Mulyanto Yuniarmo, S.T., M.T.\\
+		\tab \hspace{1mm} 2. Dr. Reza Fuad Rachmadi, S.T., M.T.\\
+		Judul Tugas Akhir (Rangkuman/Abstrak) \tab : \textbf{Klasifikasi Gerakan Mencuci Tangan\\
+		\tab \hspace{1mm} Berbasis Convolutional Neural Network}\\
+		Uraian Tugas Akhir \tab :\\
+	\end{flushleft}
+		\vspace{-3mm}Cuci tangan merupakan langkah awal untuk menjaga kebersihan dan kesehatan diri, dengan mencuci tangan kita dapat mencegah penyebaran penyakit. Akan tetapi masih banyak masyarakat yang tidak sadar akan tata cara mencuci tangan yang baik sehingga tangan tidak bersih sepenuhnya. Pemanfaatan teknologi Deep Learning dapat menjadi solusi untuk mengetahui apakah masyarakat telah mencuci tangan dengan benar, menggunakan kamera sebagai input realtime yang di proses menggunakan CNN kita dapat mengkalisifikasikan gerakan - gerakan yang dilakukan pengguna saat mencuci tangan. Harapannya Alat ini dapat memantau dan memastikan masyarakat mencuci tangan dengan baik terutama di daerah ramai pengunjung yang berpotensi menjadi pusat penyebaran penyakit.
+	\vspace{1cm}
+	
+	\begin{flushleft}
+		Dosen Pembimbing I \tab Dosen Pembimbing II\\
+		\vspace{2cm}
+		\underline{Dr. Eko Mulyanto Yuniarmo, S.T., M.T} \tab \underline{Dr. Reza Fuad Rachmadi, S.T., M.T.} \\
+		NIP. 196806011995121009 \tab NIP. 19850403201212100 \\
+		
+		\vspace{2cm}
+		\hspace{4cm} Mengetahui,\\
+		\hspace{4cm} Departemen Teknik Komputer FTEIC - ITS \\
+		\hspace{4cm} Kepala, \\
+		\vspace{2cm}
+		\hspace{4cm} \underline{Dr. Supeno Mardi Susiki Nugroho, ST., MT.} \\
+		\hspace{4cm} NIP. 197003131995121001`	
+	\end{flushleft}
+
+	\renewcommand{\thesection}{\Roman{section}}
+	\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+	
+	\newcommand{\source}[1]{\vspace{-3mm} \caption*{\textit{Sumber: {#1}}} }
+	
+	\titleformat*{\section}{\large\bfseries}
+	\makeatletter
+	\titleformat*{\subsection}{\large\bfseries}
+	\titleformat*{\subsubsection}{\normalsize\bfseries}
+	\makeatother
+	
+	\newpage
+	\begin{center}
+		\textbf {\large{KLASIFIKASI GERAKAN MENCUCI TANGAN  \\ BERBASIS CONVOLUTIONAL NEURAL NETWORK}}
+		\vspace{2mm}
+	\end{center}
+
+	\section{PENDAHULUAN}
+		\hspace{11mm}Menjaga kebersihan merupakan salah satu kunci untuk menjaga kesehatan tubuh, tubuh yang bersih dapat menghindarkan kita dari berbagai penyakit terutama yang berasal dari lingkungan disekitar kita. Kita sering kali menyentuh benda - benda di sekitar seperti Gadget, Komputer, gagang pintu, meja, lemari, dan lain sebagainya, akan tetapi kita tidak sadar bahwa benda benda tersebut seringkali menjadi sarang bagi bakteri \& virus yang dapat menyebabkan penyakit. Ketika menyentuh benda benda tersebut, kuman – kuman yang ada disana akan berpindah dan menyebar di tangan kita, kemudian ketika kita menyentuh orang lain, maka kuman penyebab penyakit itu akan berpindah dan menyebar ke tubuh orang tersebut. Pada akhirnya Ketika kita menyentuh bagian – bagian di tubuh seperti mata, hidung, dan mulut, maka kuman tersebut akan masuk ke tubuh kita dan menyebabkan penyakit. Oleh karena itu mencuci tangan merupakan hal yang paling utama dalam menjaga kesehatan tubuh dan mencegah penyebaran penyakit.
+			
+		\hspace{6mm}Pada saat laporan ini ditulis, tahun 2020, sedang marak terjadinya pandemi virus SARS-CoV-2 (Severe Acute Respiratory Syndrome – Corona Virus – 2) atau yang biasa disebut COVID-19 (Corona Virus Desease – 2019).  Bahkan pada hari ini, 4 November 2020, Tercatat 47.057.869 kasus COVID-19 di dunia dan 1.207.327 diantaranya meninggal dunia (https://covid19.who.int/, 2020).
+	
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.8\linewidth]{"../Kelengkapan TA/Data COVID"}
+			\caption{COVID-19 International Confirmed Case }
+			\source{www.worldometers.info/coronvirus/, 2020}
+			\label{fig:data-covid}
+		\end{figure}
+
+		\hspace{6mm}Virus ini menyerang sistem pernafasan yang menyebabkan pengidapnya kesulitan bernafas, kekurangan oksigen, hingga kematian. Virus ini sangat mudah untuk menyebar terutama melalui droplets (percikan air) yang terjadi ketika bersin, batuk, dan bicara sekalipun. Droplets ini akan menempel ke benda benda dan tubuh kita. Hanya dengan menyentuh benda atau bagian tubuh yang terkontaminasi lalu tanpa sadar menyentuh mata, hidung ataupun mulut, maka virus tersebut akan masuk ke tubuh dan merusak sel sel pernafasan yang akhirnya menyebabkan gangguan pernafasan bahkan kematian. 
+			
+		\hspace{6mm}Berdasarkan penjelasan tersebut tidak dipungkiri lagi bahwa mencuci tangan merupakan hal yang wajib dilakukan sebelum atau sesudah melakukan sesuatu, terlebih lagi di tempat umum ketika banyak sekali orang yang berada disana yang membuat potensi penyebaran penyakit semakin besar Namun tak dapat dipungkiri juga, walaupun kebiasaan cuci tangan meningkat selama pandemi COVID-19 (https://www.antaranews.com/) banyak orang yang masih asal – asalan Ketika mencuci tangan lantaran terburu-buru maupun hal lainnya. Menurut laman Hello Sehat (https://hellosehat.com/hidup-sehat/tips-sehat/cara-cuci-tangan-yang-salah), masih banyak kesalahan dalam mencuci tangan yang sering dilakukan oleh masyarakat, diantaranya waktu mencuci tangan yang terlalu cepat dan kebiasaan masyarakat yang hanya menggosok talapak tangan saja ketika sedang mencuci tangan. akan tetapi Tidak memungkinkan untuk dilakukannya pemantauan 7x24 jam oleh manusia terhadap pengunjung di tempat umum seperti mall dan tempat wisata lainnya demi memastikan pengunjung telah mencuci tangan dengan benar, terutama di masa pandemi COVID-19 ini yang mana masyarakat dihimbau untuk menjaga jarak untuk mencegah penularan.
+
+		\hspace{6mm}Berdasarkan latar belakang yang telah dipaparkan diatas, maka dapat dirumuskan masalah dalam penelitian tugas akhir ini sebagai berikut:
+
+		\begin{enumerate}
+			\item Kurangnya penerapan cara mencuci tangan yang baik dan benar di masyarakat
+			\item Tidak memungkinkan untuk dilakukannya pemantauan 7x24 jam oleh manusia terhadap pengunjung di tempat umum seperti mall dan tempat wisata lainnya demi memastikan pengunjung telah mencuci tangan dengan benar
+			\item Diperlukannya Alat yang dapat memantau dan memastikan pengunjung/pengguna mencuci tangan dengan benar	
+		\end{enumerate}
+
+		\hspace{6mm}Untuk Mengatasi masalah ini, hingga saat ini sudah terdapat berberapa desain alat yang dapat digunakan untuk mengklasifikasikan gerakan tangan menggunakan kamera.
+
+		\begin{enumerate}
+			\item \textbf {AI-Video Recognition Technology to Promote Hand Washing Etiquette and Hygiene in the Workplace, oleh Fujitsu Laboratories Ltd.,Fujitsu Research and Development Center Co., Ltd., (2020)}
+				
+			(https://www.reuters.com/article/idUSL4N2DU292, 2020). Perusahaan Teknologi Asal Jepang, Fujitsu, menciptakan Monitor pendeteksi cuci tangan berbasis AI yang dikembangankan dari kamera pengawas kasus kriminal milik mereka yang bisa mendeteksi Gerakan yang mencurigakan. Akan tetapi tidak disebutkan metode apa yang dignakan dalam pendeteksian ini dan sampai pada saat laporan ini dibuat, teknologi tersebut belum juga dipasarkan apalagi di Indonesia.
+				
+			\item \textbf{Hand Posture Recognition Using Convolutional Neural Network, oleh Dennis N. F., Bogdan K., (2017)}
+				
+			Penelitian ini menjelaskan mengenai pendeteksian bentuk atau postur tangan secara realtime, mengunakan kamera sebagai input dan di proses menggunakan CNN dengan mendeteksi  tangan menggunakan Skin Detection menggunakan RGB Images dan Fracture Detection menggunakan Gray Images yang keduanya dikonversi dari satu input kamera yang digunaka untuk kemudian di proses dalam CNN. Ditemukan bahwa penggunaan \textit{Gabor Filter} dapat memberikan hasil yang lebih baik
+		\end{enumerate}
+
+		\hspace{6mm}Pada Penelitian yang telah dilakukan, tidak dijelaskan spesifikasi dan metode untuk pendeteksian gerakan dalam mencuci tangan, terutama yang mendeteksi ketika kedua tangan dalam keadaan saling bertumpuk ketika sedang mencuci tangan.
+
+		\hspace{6mm}Adapun tujuan dan manfaat dari dikerjakannya Tugas Akhir ini adalah untuk mengembangkan alat yang dapat mengklasifikasikan gerakan cuci tangan untuk mengetahui apakah pengguna telah mencuci tangan dengan benar
+	
+	\newpage
+	\section{TINJAUAN PUSTAKA}
+		\subsection{Convolutional Neural Network}
+			\hspace{11mm}CNN terdiri dari berbagai lapisan yang dimana setiap lapisan memiliki Application Program Interface (API) alias antarmuka program aplikasi sederhana. Pada Gambar 4, CNN dengan input awal balok tiga dimensi akan ditransformasikan menjadi output tiga dimensi dengan beberapa fungsi diferensiasi yang memiliki atau tidak memiliki parameter. CNN membentuk neuron-neuronnya ke dalam tiga dimensi (panjang, lebar, dan tinggi) dalam sebuah lapisan. 
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.6\linewidth]{"../Kelengkapan TA/CNN simple"}
+				\caption[CNN]{Convolutional Neural Network}
+				\source{medium.com/@nadhifasofia/, 2020}
+				\label{fig:cnn-simple}
+			\end{figure}
+			
+			\begin{enumerate}
+				\item \textbf {Feature Learning} \\
+				\hspace{7mm}Lapisan-lapisan yang terdapat dalam Feature Learning berguna untuk mentranslasikan suatu input menjadi menjadi features berdasarkan ciri dari input tersebut yang berbentuk angka-angka dalam vektor. Lapisan ekstraksi fitur ini terdiri dari Convolutional Layer dan Pooling Layer. 
+
+				\begin{enumerate}
+					\item Convolutional Layer akan menghitung output dari neuron yang terhubung ke daerah lokal dalam input, masing-masing menghitung produk titik antara bobot mereka dan wilayah kecil yang terhubung ke dalam volume input.
+					
+					\item Rectified Linear Unit (ReLU) akan menghilangkan vanishing gradient dengan cara menerapkan fungsi aktivasi element sebagai
+					\begin{equation}
+						f(x)=max⁡(0,x)
+					\end{equation}
+					alias aktivasi elemen akan dilakukan saat berada di ambang batas 0. Kelebihan dan kekurangan dalam penggunaan ReLU :\\
+					+ : Bisa mempercepat gradien stokastik dibandingkan dengan fungsi sigmoid / tan h karena ReLU berbentuk linear\\
+					+ : Tidak menggunakan operasi eksponensial seperti sigmoid/tan h, sehingga bisa melakukan dengan pembuatan matriks aktivasi saat ambang batas berada pada nilai 0.\\
+					- : ReLU bisa rapuh saat masa training dan mati karena gradien besar yang mengalir melalui ReLU menyebabkan update bobot, sehingga neuron tidak aktif pada datapoint lagi. Jika ini terjadi, maka gradien yang mengalir melalui unit akan selamanya nol dari titik itu. Artinya, unit ReLU dapat mati secara ireversibel selama pelatihan karena mereka dapat melumpuhkan data manifold. Misalnya, Anda mungkin menemukan bahwa sebanyak 40\% dari jaringan Anda dapat “mati” (yaitu neuron yang tidak pernah aktif di seluruh dataset pelatihan) jika tingkat pembelajaran ditetapkan terlalu tinggi. Dengan pengaturan tingkat pembelajaran yang tepat, ini lebih jarang menjadi masalah.
+					
+					\item Pooling layer adalah lapisan yang mengurangi dimensi dari feature map atau lebih dikenal dengan langkan untuk downsampling, sehingga mempercepat komputasi karena parameter yang harus diupdate semakin sedikit dan mengatasi overfitting. Pooling yang biasa digunakan adalah Max Pooling dan Average Pooling. Max Pooling untuk menentukan nilai maksimum tiap pergeseran filter, sementara Average Pooling akan menentukan nilai rata-ratanya.
+					
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.45\linewidth]{"../Kelengkapan TA/MAX Pooling"}
+						\caption[Max Pooling]{Contoh Max Pooling}
+						\source{medium.com/@nadhifasofia/, 2020}
+						\label{fig:max-pooling}
+					\end{figure}
+				
+				\end{enumerate}
+			
+				\newpage
+				\item \textbf{Classification} \\
+				Lapisan ini berguna untuk mengklasifikasikan tiap neuron yang telah diekstraksi fitur pada sebelumnya. Terdiri dari :
+				
+				\begin{enumerate}
+					\item Flatten\\
+					Membentuk ulang fitur (reshape feature map) menjadi sebuah vector agar bisa kita gunakan sebagai input dari fully-connected layer.
+					\item Fully-connected\\
+					Lapisan FC (yaitu terhubung sepenuhnya) akan menghitung skor kelas. Seperti Jaringan Saraf biasa dan seperti namanya, setiap neuron dalam lapisan ini akan terhubung ke semua angka dalam volume.
+					\item Softmax\\
+					Fungsi Softmax menghitung probabilitas dari setiap kelas target atas semua kelas target yang memungkinkan dan akan membantu untuk menentukan kelas target untuk input yang diberikan. Keuntungan utama menggunakan Softmax adalah rentang probabilitas output dengan nilai 0 hingga 1, dan jumlah semua probabilitas akan sama dengan satu. Jika fungsi softmax digunakan untuk model multi-klasifikasi, dia akan mengembalikan peluang dari masing-masing kelas dan kelas target akan memiliki probabilitas tinggi. Softmax menggunakan eksponensial (e-power) dari nilai input yang diberikan dan jumlah nilai eksponensial dari semua nilai dalam input. Maka rasio eksponensial dari nilai input dan jumlah nilai eksponensial adalah output dari fungsi softmax.
+					\begin{figure}[h]
+						\centering
+						\includegraphics[width=0.6\linewidth]{"../Kelengkapan TA/Langkah Perhitungan CNN"}
+						\caption[Calculation by Weight]{Langkah Perhitungan CNN}
+						\source{medium.com/@nadhifasofia/, 2020}
+						\label{fig:langkah-perhitungan-cnn}
+					\end{figure}
+				
+				\end{enumerate}
+				
+			\end{enumerate}
+	
+	\newpage
+	\section{METODOLOGI}
+		\subsection{Alat dan Bahan}
+			Alat dan Bahan yang dibutuhkan dalam penelitian ini mencakup:
+			\begin{enumerate}
+				\item Kamera\\
+				Modul kamera yang digunakan adalah modul kamera Webcam M-Tech WB500 beresolusi 1080p 30fps yang mana ini dirasa cukup untuk menangkap detail yang dibutuhkan
+				\item Komputer\\
+				Untuk memproses data menggunakan CNN, diperlukan Sebuah Komputer yang cukup mumpuni, spesifikasi komputer yang digunakan dalam penelitian ini adalah sebagai berikut:
+				\begin{enumerate}[nolistsep]
+					\item CPU   : intel Core i5 4690
+					\item Memmory   : 8 GB DDR3 1600Mhz
+					\item Storage   : 1TB SATA HDD
+					\item GPU   : NVIDIA GTX 1660TI 6GB GDDR5
+				\end{enumerate}
+				\item Software dan Library\\
+				Penelitian ini akan menggunakan software Anaconda (Python 3.8) yang sudah dilengkapi dengan libray sebagai berikut:
+				\begin{enumerate}[nolistsep]
+					\item Tensorflow
+					\item Keras
+					\item OpenCV
+					\item CudaToolkit 10.l
+				\end{enumerate}
+			\end{enumerate}
+		\subsection{Metodologi (Tahapan Pengerjaan)}
+			Metodologi yang dilakukan pada percobaan ini mencakup tahapan sebagai berikut:
+			\begin{enumerate}
+				\item Pengumpulan Data\\
+				Data yang digunakan adalah data yang berasal dari Feed Webcam.
+				untuk Pembuatan Model dan Training, akan dibuatkan Rekaman Video sebagai dasar, namun untuk tahap testing, akan digunakan Video Realtime dari webcam
+				\item Pre-Processing\\
+				Video yang diterimaakan diambil \textit{frame-by-frame} yang kemudian akan dibuatkan dalam satu Sequence gerakan tangan
+				\item Membuat Model\\
+				sequence gerakan akan dibuatkan ke dalam model untuk menentukan gerakan apa yang dilakukan dalam video tersebut, output neuron dari model tersebut akan disesuaikan dengan jumlah gerakan cuci tangan yang ada sesuai standar WHO
+				\item Training\\
+				Model yang telah dibuat akan di training hingga mencapai keakuratan setidaknya $>$ 70\%
+				\item Testing\\
+				Model yang Sudah ditraing akan di test dengan Video Realtime dari WebCam
+			\end{enumerate}
+		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.8\linewidth]{"../Kelengkapan TA/Blok Diagram Klasifikasi Cuci Tangan(1)"}
+				\caption[Block Diagram]{Klasifikasi Gerakan Mencuci Tangan Berbasis CNN}
+				\source{Dokumen Penulis}
+				\label{fig:blok-diagram-klasifikasi-cuci-tangan}
+			\end{figure}
+			
+			
+	\newpage
+	\section{HASIL YANG DIHARAPKAN}
+	
+	\subsection{Hasil Yang Diharapkan}	
+	\hspace{10mm}Dengan dilakukannya penelitian ini, diharapkan bahwa alat yang dikerjakan dapat mengklasifikasikan gerakan yang dilakukan pengguna ketika sedang mencuci tangan, dengan tingkat akurasi lebih dari 70\%. Metode klasifikasi yang digunakan diharapkan dapat dipublikasikan sehingga nantinya dapat diproduksi secara masal di masa depan.
+	
+	\subsection{Hasil Pendahuluan}
+	Sejauh ini hasil yang telah diraih adalah sebagai berikut:
+	\begin{enumerate}
+		\item Mempersiapkan Environtment Pemrograman
+		\item Studi Literatur tentang Video Classification menggunakan Convolutional Neural Network
+		\item Studi Literatur mengenai \textit{Sequencing} menggunakan dataset HMDB51
+	\end{enumerate}
+
+	\section{RENCANA KERJA}
+	\vspace{-5mm}
+	\def\arraystretch{1.5}%
+	\begin{table}[h!]
+		\begin{tabular}{|c|p{3.5cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{No.} & \multirow{2}{*}{Kegiatan} & \multicolumn{16}{|c|}{Minggu} \\
+			\cline{3-18} &&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16 \\
+			\hline
+			1 & Studi literatur
+			&\cellcolor{gray}
+			&&&&&&&&&&&&&&& \\
+			\hline
+			2 & Konfigurasi label dan membagi data \textit{training} \& \textit{test} 
+			&
+			&\cellcolor{gray}&\cellcolor{gray}
+			&&&&&&&&&&&&& \\
+			\hline
+			3 & Proses \textit{preprocessing} &&&
+			&\cellcolor{gray}&\cellcolor{gray}
+			&&&&&&&&&&& \\
+			\hline
+			4 & Proses \textit{training}
+			&&&&&
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&&& \\
+			\hline
+			5 & Proses \textit{testing} 
+			&&&&&&&&&&&&&
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}
+			\\
+			\hline
+			6 & Dokumentasi dan pembuatan laporan  
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray}
+			&\cellcolor{gray}&\cellcolor{gray} \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\newpage
+	\section{DAFTAR PUSTAKA}
+
+	\nocite{*}
+	\bibliographystyle{IEEEtran}
+	\bibliography{daftarpustaka}
+
+\end{document}

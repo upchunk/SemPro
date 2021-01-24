@@ -1,0 +1,138 @@
+\documentclass[a4paper]{article}
+\usepackage[left=3.00cm, right=2.00cm, bottom=2.00cm, top=3.00cm]{geometry}
+\usepackage{tabto}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\title{Proposal Pra Tugas Akhir}
+
+\begin{document}
+	\begin{flushleft}
+		\textbf{Departemen Teknik Komputer - FTEIC}\\
+		\textbf{Institut Teknologi Sepuluh Nopember}\\
+	\end{flushleft}
+	\begin{center}
+		\underline{\textbf{EC184701 - PRA TUGAS AKHIR – 2 SKS}}
+	\end{center}
+\begin{flushleft}
+		Nama Mahasiswa \tab : Habibul Rahman Qalbi\\
+		Nomor Pokok \tab : 07211640000015 \\
+		Semester \tab : Ganjil 2019/2020\\
+		Dosen Pembimbing \tab : 1. Dr. Eko Mulyanto Yuniarmo, S.T., M.T.\\
+		\tab \hspace{1mm} 2. Dr. Reza Fuad Rachmadi, S.T., M.T.\\
+		Judul Tugas Akhir \tab : \textbf{Klasifikasi Gerakan Mencuci Tangan\\
+		\tab \hspace{1mm} Berbasis Visi Komputer}\\
+		Uraian Tugas Akhir \tab :\\
+		Mengimplementasikan model klasifikasi gerakan dalam tahapan mencuci tangan menggunakan Kamera Berbasis Visi Komputer 
+\end{flushleft}
+\vspace{5mm}
+\begin{flushleft}
+	Dosen Pembimbing I \tab Dosen Pembimbing II\\
+	\vspace{2cm}
+	\underline{Dr. Eko Mulyanto Yuniarmo, S.T., M.T} \tab \underline{Dr. Reza Fuad Rachmadi, S.T., M.T.} \\
+	NIP. 196806011995121009 \tab NIP. 19850403201212100 \\
+	
+	\vspace{cm}
+	\hspace{4cm} Mengetahui,\\
+	\hspace{4cm} Departemen Teknik Komputer FTEIC - ITS \\
+	\hspace{4cm} Kepala, \\
+	\vspace{2cm}
+	\hspace{4cm} \underline{Dr. Supeno Mardi Susiki Nugroho, ST., MT.} \\
+	\hspace{4cm} NIP. 197003131995121001`	
+\end{flushleft}
+
+\newpage
+
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesection}{\Alph{section}}
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+
+\section{JUDUL TUGAS AKHIR}
+\hspace{7mm}Klasifikasi Gerakan Mencuci Tangan Berbasis Visi Komputer
+\section{RUANG LINGKUP}
+\begin{enumerate}
+	\item \textit{Computer Vision}
+	\item \textit{Deep Learning}
+\end{enumerate}
+\section{LATAR BELAKANG}
+\hspace{7mm}Menjaga kebersihan merupakan salah satu kunci untuk menjaga kesehatan tubuh, tubuh yang bersih dapat menghindarkan kita dari berbagai penyakit terutama yang berasal dari lingkungan disekitar kita. Kita sering kali menyentuh benda - benda di sekitar seperti Gadget, Komputer, gagang pintu, meja, lemari, dan lain sebagainya, akan tetapi kita tidak sadar bahwa benda benda tersebut seringkali menjadi sarang bagi bakteri \& virus yang dapat menyebabkan penyakit. Ketika menyentuh benda benda tersebut, kuman – kuman yang ada disana akan berpindah dan menyebar di tangan kita, kemudian ketika kita menyentuh orang lain, maka kuman penyebab penyakit itu akan berpindah dan menyebar ke tubuh orang tersebut. Pada akhirnya Ketika kita menyentuh bagian – bagian di tubuh seperti mata, hidung, dan mulut, maka kuman tersebut akan masuk ke tubuh kita dan menyebabkan penyakit. Oleh karena itu mencuci tangan merupakan hal yang paling utama dalam menjaga kesehatan tubuh dan mencegah penyebaran penyakit.
+
+\hspace{7mm}Pada saat laporan ini ditulis, tahun 2020, sedang marak terjadinya pandemi virus SARS-CoV-2 (Severe Acute Respiratory Syndrome – Corona Virus – 2) atau yang biasa disebut COVID-19 (Corona Virus Desease – 2019).  Bahkan pada hari ini, 4 November 2020, Tercatat 47.057.869 kasus COVID-19 di dunia dan 1.207.327 diantaranya meninggal dunia (https://covid19.who.int/, 2020).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"../Kelengkapan TA/Data COVID"}
+	\caption{COVID-19 International Confirmed Case }
+	\label{fig:data-covid}
+\end{figure}
+
+\hspace{7mm}Virus ini menyerang sistem pernafasan yang menyebabkan pengidapnya kesulitan bernafas, kekurangan oksigen, hingga kematian. Virus ini sangat mudah untuk menyebar terutama melalui droplets (percikan air) yang terjadi ketika bersin, batuk, dan bicara sekalipun. Droplets ini akan menempel ke benda benda dan tubuh kita. Hanya dengan menyentuh benda atau bagian tubuh yang terkontaminasi lalu tanpa sadar menyentuh mata, hidung ataupun mulut, maka virus tersebut akan masuk ke tubuh dan merusak sel sel pernafasan yang akhirnya menyebabkan gangguan pernafasan bahkan kematian. 
+
+\hspace{7mm}Berdasarkan penjelasan tersebut tidak dipungkiri lagi bahwa mencuci tangan merupakan hal yang wajib dilakukan sebelum atau sesudah melakukan sesuatu, terlebih lagi di tempat umum ketika banyak sekali orang yang berada disana yang membuat potensi penyebaran penyakit semakin besar Namun tak dapat dipungkiri juga, walaupun kebiasaan cuci tangan meningkat selama pandemi COVID-19 (https://www.antaranews.com/) banyak orang yang masih asal – asalan Ketika mencuci tangan lantaran terburu-buru maupun hal lainnya. Menurut laman Hello Sehat (https://hellosehat.com/hidup-sehat/tips-sehat/cara-cuci-tangan-yang-salah), masih banyak kesalahan dalam mencuci tangan yang sering dilakukan oleh masyarakat, diantaranya waktu mencuci tangan yang terlalu cepat dan kebiasaan masyarakat yang hanya menggosok talapak tangan saja ketika sedang mencuci tangan. akan tetapi Tidak memungkinkan untuk dilakukannya pemantauan 7x24 jam oleh manusia terhadap pengunjung di tempat umum seperti mall dan tempat wisata lainnya demi memastikan pengunjung telah mencuci tangan dengan benar, terutama di masa pandemi COVID-19 ini yang mana masyarakat dihimbau untuk menjaga jarak untuk mencegah penularan.
+
+\section{PERUMUSAN MASALAH}
+\hspace{7mm}Berdasarkan latar belakang yang telah dipaparkan diatas, maka dapat dirumuskan masalah dalam penelitian tugas akhir ini sebagai berikut:
+\begin{enumerate}
+	\item Tidak memungkinkan untuk dilakukannya pemantauan 7x24 jam oleh manusia terhadap pengunjung di tempat umum seperti mall dan tempat wisata lainnya demi memastikan pengunjung telah mencuci tangan dengan benar
+	\item Diperlukannya Alat yang dapat memastikan pengunjung/pengguna mencuci tangan dengan benar
+\end{enumerate}
+
+\section{PENELITIAN TERKAIT}
+\hspace{7mm}Untuk Mengatasi masalah ini, hingga saat ini sudah terdapat berberapa desain alat yang dapat digunakan untuk mendeteksi ketepatan cuci tangan menggunakan kamera. Contohnya yang sedang dikembangkan oleh perusahaan asal Jepang, Fujitsu (https://www.reuters.com/article/idUSL4N2DU292, 2020). Mereka menciptakan Monitor pendeteksi cuci tangan berbasis AI yang dikembangankan dari kamera pengawas kasus kriminal yang bisa mendeteksi Gerakan yang mencurigakan. Akan tetapi tidak disebutkan metode apa yang dignakan dalam pendeteksian ini dan sampai pada saat laporan ini dibuat, teknologi tersebut belum juga dipasarkan apalagi di Indonesia. Maka dari itu, pada penelitian ini saya mengusulkan konsep alat yang sama dengan metode CNN (YOLO) yang harapannya dapat menjadi opsi lain untuk mendeteksi ketepatan cuci tangan sesuai dengan standar WHO
+
+\section{PERMASALAHAN TERSISA}
+\hspace{7mm}Permasalahan Yang tersisa dari Penelitian Terkait adalah sebagai Berikut:
+\begin{enumerate}
+	\item Tidak Diketahui Metode Apa yang Digunakan
+	\item Aksesibilitas yang sulit dikarenakan alat terkait tidak / belum dipasarkan secara global
+\end{enumerate}
+
+\section{BATASAN MASALAH}
+\begin{enumerate}
+	\item Penelitian ini menggunakan 1 kamera dengan posisi tetap sebagai input data
+	\item Uji coba penelitian ini dilakukan di sekitar tempat tinggal penulis
+	\item Penelitian ini hanya berfokus pada klasifikasi Gerakan tangan saja
+\end{enumerate}
+
+\section{TUJUAN TUGAS AKHIR DAN MANFAAT}
+Adapun tujuan dan manfaat dari dikerjakannya Tugas Akhir ini adalah:
+\begin{enumerate}
+	\item Mengimplementasikan Konsep Klasifikasi Gerakan Mencuci Tangan Berbasis Visi Komputer
+	\item Menyelesaikan Salah Satu Syarat Kelulusan di Departemen Teknik Komputer FTEIC ITS
+	\item Mengaplikasikan Ilmu yang telah di pelajari dalam
+\end{enumerate} 
+
+\section{TINJAUAN PUSTAKA}
+\subsection{Lorem Ipsum}
+\hspace*{9mm} \lipsum[1]
+\subsection{Lorem Ipsum}
+\hspace*{9mm} \lipsum[1]
+\subsection{Lorem Ipsum}
+\subsubsection{Lorem Ipsum}
+\hspace*{13mm} \lipsum[1]
+\section{METODOLOGI}
+\section{RENCANA KERJA}
+\begin{table}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{No.} & \multirow{2}{*}{Kegiatan} & \multicolumn{16}{|c|}{Minggu} \\
+		\cline{3-18} &&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16 \\
+		\hline
+		1 & Studi literatur &&&&&&&&&&&&&&&& \\
+		\hline
+		2 & Pembuatan dataset &&&&&&&&&&&&&&&& \\
+		\hline
+		3 & Pelatihan data &&&&&&&&&&&&&&&& \\
+		\hline
+		4 & Klasifikasi data &&&&&&&&&&&&&&&& \\
+		\hline
+		5 & Pembuatan laporan &&&&&&&&&&&&&&&& \\
+		\hline
+	\end{tabular}
+\end{table}
+\section{DAFTAR PUSTAKA}
+
+\end{document}

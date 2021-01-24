@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{handgesture}
+Abbas H. Hassin~AlAsadi Ahmed Kadem Hamed~AlSaedi.
+\newblock A new hand gestures recognition system.
+\newblock {\em Indonesian Journal of Electrical Engineering and Computer
+  Science}, 18, 2020.
+
+\bibitem{handposture}
+Dennis~N. F. and Bogdan Kwolek.
+\newblock {\em Hand Posture Recognition Using Convolutional Neural Network}.
+\newblock Dennis N. F. and Bogdan Kwolek, 2017.
+
+\bibitem{finger}
+Ruchi~Manish Gurav and Premanand~K. Kadbe.
+\newblock {\em Real time Finger Tracking and Contour Detection for Gesture
+  Recognition using OpenCV}.
+\newblock Ruchi Manish Gurav, 2015.
+
+\bibitem{cleanhands}
+World~Health Organization.
+\newblock Who saves lives: Clean your hands in the context of covid-19.
+\newblock
+  https://www.who.int/publications/m/item/who-saves-lives-clean-your-hands-in-the-context-of-covid-19,
+  2020.
+
+\bibitem{cucitangan}
+Aprinda Puji.
+\newblock Cara cuci tangan yang salah, tapi sering dilakukan banyak orang.
+\newblock
+  https://hellosehat.com/hidup-sehat/tips-sehat/cara-cuci-tangan-yang-salah/,
+  2020.
+
+\bibitem{covid}
+World-O-Meter.
+\newblock Covid-19 coronavirus pandemic.
+\newblock https://www.worldometers.info/coronavirus/, 2020.
+
+\end{thebibliography}
